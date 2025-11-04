@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+spec:
+  containers:
+  - name: myapp
+    image: nginx
+    ports:
+      - containerPort: 80
+    volumeMounts:
+    - name: pendrive
+      mountPath: /mnt/pendrive #mount path diya
+  volumes:
+  - name: pendrive
+    persistentVolumeClaim:
+      claimName: mypvc #pvc name diya
